@@ -9,7 +9,23 @@ pipeline {
     stages {
              stage('Test'){
              steps{
+             //for user input
                  input 'do you want to proceed?'
+             }
+             }
+             stage('pre-buuild'){
+             parallel{
+                stage('unittest'){
+                   steps{
+                       echo 'this is the unit testing'
+                
+                }
+                }
+                stage('integrationtest'){
+                steps{
+                 echo 'this is integration testing'
+                }
+                }
              }
              }
         stage('Build') {
