@@ -7,6 +7,11 @@ pipeline {
     }
 
     stages {
+             stage('Test'){
+             steps{
+                 input 'do you want to proceed?'
+             }
+             }
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
